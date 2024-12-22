@@ -1,31 +1,41 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Producer } from './entities/producer.entity';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateProducerDto } from './dto/create-producer.dto';
+import { PaginationDto } from 'src/core/dto/pagination.dto';
+import { ProducersRepository } from './producers.repository';
+import { UpdateProducerDto } from './dto/update-producer.dto';
 
 @Injectable()
 export class ProducersService {
-  constructor(
-    @InjectRepository(Producer)
-    private producersRepository: Repository<Producer>,
-  ) {}
+  constructor(private readonly producersRepository: ProducersRepository) {}
 
-  create(createProducerDto: CreateProducerDto) {
-    const producer = this.producersRepository.create(createProducerDto);
-    return this.producersRepository.save(producer);
+  async create(createProducerDto: CreateProducerDto) {
+    const producer = await this.producersRepository.findOne({ where: { cpfOrCnpj: createProducerDto.cpfOrCnpj } }); 
+    if (producer){
+      throw new ConflictException('Produtor já cadastrado');
+    }
+    return this.producersRepository.created(createProducerDto);
   }
 
-  findAll() {
-    return this.producersRepository.find({ relations: ['farms'] });
+  findAll(paginationDto: PaginationDto) {
+    const {page, limit} = paginationDto;
+    const skip = (page - 1) * limit;
+    return this.producersRepository.findAll({ skip, take: limit });
   }
 
   findOne(id: string) {
-    return this.producersRepository.findOne({ where: { id }, relations: ['farms'] });
+    return this.producersRepository.findOneById(id);
   }
 
-  remove(id: string) {
-    return this.producersRepository.delete(id);
+  async remove(id: string) {
+    const producer = await this.producersRepository.findOne({ where: { id: id } }); 
+    if (!producer){
+      throw new NotFoundException('Produtor não encontrado !');
+    }
+    return this.producersRepository.removed(id);
+  }
+
+  update(id: string, updateData: UpdateProducerDto) {
+    return this.producersRepository.updated(id, updateData);
   }
 }
 

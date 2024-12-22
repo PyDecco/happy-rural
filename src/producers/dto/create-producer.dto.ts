@@ -1,10 +1,11 @@
-import { IsNotEmpty, IsString, Matches } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
+import { IsCpfOrCnpj } from '../../core/decorator/cpf-cnpj.decorator'; // Importando o decorator personalizado
 
 export class CreateProducerDto {
   @IsNotEmpty()
   @IsString()
-  @Matches(/^\d{11}$|^\d{14}$/, {
-    message: 'CPF deve ter 11 dígitos ou CNPJ deve ter 14 dígitos',
+  @IsCpfOrCnpj({
+    message: 'CPF ou CNPJ inválido', // Mensagem de erro personalizada
   })
   cpfOrCnpj: string;
 

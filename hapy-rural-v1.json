@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "b1e1a241-42c9-48ac-9f56-e907b1f2b6d2",
+    "name": "Producers API",
+    "description": "API para gerenciar produtores rurais",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Producer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cpfOrCnpj\": \"12345678901\", \"name\": \"John Doe\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/producers",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "producers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Producers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/producers",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "producers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Producer By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/producers/:id",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "producers",
+            ":id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Producer",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cpfOrCnpj\": \"98765432100\", \"name\": \"Jane Doe\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/producers/:id",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "producers",
+            ":id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Producer",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/producers/:id",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "producers",
+            ":id"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
