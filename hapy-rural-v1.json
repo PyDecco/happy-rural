@@ -1,8 +1,8 @@
 {
   "info": {
     "_postman_id": "b1e1a241-42c9-48ac-9f56-e907b1f2b6d2",
-    "name": "Producers API",
-    "description": "API para gerenciar produtores rurais",
+    "name": "Producers and Farms API",
+    "description": "API para gerenciar produtores rurais e fazendas",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -126,6 +126,132 @@
           "port": "3000",
           "path": [
             "producers",
+            ":id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Farm",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Farm 1\", \"city\": \"City A\", \"state\": \"State A\", \"totalArea\": 1000, \"agriculturalArea\": 500, \"vegetationArea\": 0, \"crops\": []}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/farms",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "farms"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Farms",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/farms",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "farms"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Farm By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/farms/:id",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "farms",
+            ":id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Farm",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Farm Updated\", \"city\": \"City B\", \"state\": \"State B\", \"totalArea\": 1200, \"agriculturalArea\": 600, \"vegetationArea\": 100, \"crops\": []}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/farms/:id",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "farms",
+            ":id"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Farm",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3000/farms/:id",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "farms",
             ":id"
           ]
         }

@@ -1,9 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { Producer } from '../../producers/entities/producer.entity';
+import { Crop } from '../../crops/entities/crop.entity';
 
-@Entity('farms') 
+@Entity('farms')
 export class Farm {
-  @PrimaryGeneratedColumn('uuid') 
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -15,17 +16,14 @@ export class Farm {
   @Column()
   state: string;
 
-  @Column('float') 
-  totalArea: number;
+  @Column('float')
+  totalArea: number;  
 
   @Column('float')
-  agriculturalArea: number;
+  agriculturalArea: number;  
 
-  @Column('float')
-  vegetationArea: number;
-
-  @Column('simple-array') 
-  crops: string[];
+  @OneToMany(() => Crop, (crop) => crop.farm)
+  crops: Crop[];
 
   @ManyToOne(() => Producer, (producer) => producer.farms, { onDelete: 'CASCADE' })
   producer: Producer;
