@@ -9,5 +9,6 @@ import { ProducersRepository } from './producers.repository';
   imports: [TypeOrmModule.forFeature([Producer, ProducersRepository])],
   controllers: [ProducersController],
   providers: [ProducersService, ProducersRepository],
+  exports: [ProducersService],
 })
 export class ProducersModule {}

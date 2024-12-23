@@ -3,6 +3,7 @@ import { CreateProducerDto } from './dto/create-producer.dto';
 import { PaginationDto } from 'src/core/dto/pagination.dto';
 import { ProducersRepository } from './producers.repository';
 import { UpdateProducerDto } from './dto/update-producer.dto';
+import { Producer } from './entities/producer.entity';
 
 @Injectable()
 export class ProducersService {
@@ -22,14 +23,18 @@ export class ProducersService {
     return this.producersRepository.findAll({ skip, take: limit });
   }
 
-  findOne(id: string) {
-    return this.producersRepository.findOneById(id);
+  async findOne(id: string): Promise<Producer> {
+    const producer = await this.producersRepository.findOneById(id);
+    if (!producer){
+      throw new NotFoundException('Produtor não encontrado');
+    }
+    return producer;
   }
 
   async remove(id: string) {
     const producer = await this.producersRepository.findOne({ where: { id: id } }); 
     if (!producer){
-      throw new NotFoundException('Produtor não encontrado !');
+      throw new NotFoundException('Produtor não encontrado');
     }
     return this.producersRepository.removed(id);
   }

@@ -15,7 +15,7 @@ export function IsCpfOrCnpj(validationOptions?: ValidationOptions) {
           return cpf.isValid(value) || cnpj.isValid(value); // Verifica se é um CPF ou CNPJ válido
         },
         defaultMessage(args: ValidationArguments) {
-          return `${args.property} deve ser um CPF ou CNPJ válido`; // Mensagem padrão de erro
+          return `${args.property} deve ser um CPF ou CNPJ válido`;
         },
       },
     });

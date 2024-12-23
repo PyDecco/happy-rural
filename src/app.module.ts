@@ -5,6 +5,7 @@ import { ProducersModule } from './producers/producers.module';
 import { FarmsModule } from './farms/farms.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppDataSource } from './data-source'; // Importe o DataSource configurado
+import { CropsModule } from './crops/crops.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AppDataSource } from './data-source'; // Importe o DataSource configura
     ProducersModule,
     FarmsModule,
     DashboardModule,
+    CropsModule,
   ],
 })
 export class AppModule {}

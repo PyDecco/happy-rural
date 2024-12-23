@@ -7,6 +7,7 @@ import {
   Param,
   Body,
   Query,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ProducersService } from './producers.service';
 import { CreateProducerDto } from './dto/create-producer.dto';
@@ -18,7 +19,7 @@ import { PaginationDto } from '../core/dto/pagination.dto';
     constructor(private readonly producersService: ProducersService) {}
   
     @Post()
-    async create(@Body() createProducerDto: CreateProducerDto) {
+    async create(@Body(new ValidationPipe()) createProducerDto: CreateProducerDto) {
       return this.producersService.create(createProducerDto);
     }
   
