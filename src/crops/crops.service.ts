@@ -1,8 +1,8 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Crop } from './entities/crop.entity';
-import { Farm } from '../farms/entities/farm.entity';
+import { Crop } from '../entities/crop.entity';
+import { Farm } from '../entities/farm.entity';
 import { CreateCropDto } from './dto/create-crop.dto';
 import { UpdateCropDto } from './dto/update-crop.dto';
 

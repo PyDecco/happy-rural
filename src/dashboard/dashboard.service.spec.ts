@@ -2,8 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { DashboardService } from './dashboard.service';
 import { Repository } from 'typeorm';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Farm } from '../farms/entities/farm.entity';
-import { Crop } from '../crops/entities/crop.entity';
+import { Farm } from '../entities/farm.entity';
+import { Crop } from '../entities/crop.entity';
 
 describe('DashboardService', () => {
   let service: DashboardService;

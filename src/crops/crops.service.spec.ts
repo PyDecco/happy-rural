@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CropsService } from './crops.service';
 import { Repository } from 'typeorm';
-import { Crop } from './entities/crop.entity';
-import { Farm } from '../farms/entities/farm.entity';
+import { Crop } from '../entities/crop.entity';
+import { Farm } from '../entities/farm.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { NotFoundException, BadRequestException } from '@nestjs/common';
 

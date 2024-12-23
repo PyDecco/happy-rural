@@ -3,7 +3,7 @@ import { CreateProducerDto } from './dto/create-producer.dto';
 import { PaginationDto } from 'src/core/dto/pagination.dto';
 import { ProducersRepository } from './producers.repository';
 import { UpdateProducerDto } from './dto/update-producer.dto';
-import { Producer } from './entities/producer.entity';
+import { Producer } from '../entities/producer.entity';
 
 @Injectable()
 export class ProducersService {

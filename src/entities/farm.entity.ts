@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
-import { Producer } from '../../producers/entities/producer.entity';
-import { Crop } from '../../crops/entities/crop.entity';
+import { Producer } from './producer.entity';
+import { Crop } from './crop.entity';
 
 @Entity('farms')
 export class Farm {

@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { DataSource, Repository } from 'typeorm';
-import { Producer } from './entities/producer.entity';
+import { Producer } from '../entities/producer.entity';
 import { CreateProducerDto } from './dto/create-producer.dto';
 import { UpdateProducerDto } from './dto/update-producer.dto';
 import { NotFoundError } from 'rxjs';
