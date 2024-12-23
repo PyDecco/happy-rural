@@ -10,7 +10,6 @@ describe('DashboardService', () => {
   let farmRepository: Repository<Farm>;
   let cropRepository: Repository<Crop>;
 
-  // Mock do QueryBuilder
   const mockQueryBuilder = {
     select: jest.fn().mockReturnThis(),
     addSelect: jest.fn().mockReturnThis(),

@@ -47,19 +47,16 @@ describe('FarmsService', () => {
           state: 'State B',
           totalArea: 1000,
           agriculturalArea: 800,
-          producerId: '56e79a73-ceff-4472-acbe-47a2a6c96414', // Simulando um ID de produtor inexistente
+          producerId: '56e79a73-ceff-4472-acbe-47a2a6c96414', 
           crops: ['cropId1', 'cropId2'],
         };
       
-        // Simulando a exceção quando o produtor não for encontrado
         mockProducersService.findOne.mockRejectedValueOnce(
             new NotFoundException('Produtor não encontrado'),
           );       
       
-        // Esperando que a exceção seja lançada
         await expect(service.updateFarm('someFarmId', updateFarmDto)).rejects.toThrow(NotFoundException);
       
-        // Verificar se o método foi chamado corretamente
         expect(mockProducersService.findOne).toHaveBeenCalledWith(updateFarmDto.producerId);
       });
       

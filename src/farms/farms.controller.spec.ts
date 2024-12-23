@@ -5,7 +5,6 @@ import { CreateFarmDto } from './dto/create-farm.dto';
 import { UpdateFarmDto } from './dto/update-farm.dto';
 import { ConflictException, NotFoundException } from '@nestjs/common';
 
-// Mock dos serviços que a FarmsController depende
 const mockFarmsService = {
   createFarm: jest.fn(),
   findAll: jest.fn(),

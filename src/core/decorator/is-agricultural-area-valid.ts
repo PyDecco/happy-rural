@@ -11,8 +11,8 @@ export function IsAgriculturalAreaValid(validationOptions?: ValidationOptions) {
         validator: {
           validate(value: any, args: ValidationArguments) {
             const object = args.object as any;
-            console.log('Validando', value, object.totalArea);  // Log de depuração
-            return value <= object.totalArea;  // A área agrícola não pode ser maior que a área total
+            console.log('Validando', value, object.totalArea); 
+            return value <= object.totalArea;  
           },
           defaultMessage(args: ValidationArguments) {
             return `A área agrícola não pode ser maior que a área total da fazenda`;

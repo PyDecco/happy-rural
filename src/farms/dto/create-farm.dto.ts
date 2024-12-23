@@ -1,5 +1,5 @@
 import { IsString, IsNumber, IsOptional, IsNotEmpty, IsUUID } from 'class-validator';
-import { IsAgriculturalAreaValid } from '../../core/decorator/is-agricultural-area-valid';  // Caminho do seu decorador
+import { IsAgriculturalAreaValid } from '../../core/decorator/is-agricultural-area-valid';
 
 export class CreateFarmDto {
   @IsString()

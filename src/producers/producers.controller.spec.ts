@@ -1,4 +1,3 @@
-// src/producers/producers.controller.spec.ts
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProducersController } from './producers.controller';
 import { ProducersService } from './producers.service';
